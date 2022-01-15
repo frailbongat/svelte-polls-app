@@ -18,11 +18,15 @@
 		people = people.filter(person => person.id !== id)
 	}
 
-	let num = 5
+	const addPerson = (e) => {
+		console.log(e.detail)
+		people = [e.detail, ...people]
+		showModal = false
+	}
 </script>
 
 <Modal {showModal} on:click={toggleModal}>
-	<AddPersonForm />
+	<AddPersonForm on:addPerson={addPerson} />
 </Modal>
 
 <main>
